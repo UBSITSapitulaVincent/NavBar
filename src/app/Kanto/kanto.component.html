@@ -1,0 +1,16 @@
+<div class="home-page-container">
+  <div class="home-header">
+    <h2>Kanto Gym Leaders</h2>
+  </div>
+
+  <div class="history-section">
+    @for (leader of gymLeaders(); track leader.name) {
+      <div class="leader-card">
+        <div class="leader-title">Leader</div>
+        <div class="leader-name">{{ leader.name }}</div>
+        <button>Motto</button>
+      </div>
+    }
+
+  </div>
+</div>

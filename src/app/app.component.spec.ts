@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'NAVBAR' title`, () => {
+  it(`should have the 'Gym-Leaders' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('NAVBAR');
+    expect(app.title).toEqual('Gym-Leaders');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, NAVBAR');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Gym-Leaders');
   });
 });

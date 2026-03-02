@@ -1,0 +1,19 @@
+.home {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: sans-serif;
+}
+
+.welcome {
+  margin-bottom: 40px;
+}
+
+section {
+  margin-top: 25px;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
