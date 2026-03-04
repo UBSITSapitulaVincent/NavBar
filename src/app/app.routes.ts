@@ -1,10 +1,15 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { KantoComponent } from './kanto/kanto.component';
+import { KantoComponent } from './Kanto/kanto.component';
 import { JohtoComponent } from './johto/johto.component';
+import { HoennComponent } from './hoenn/hoenn.component';
+import { HomeComponent } from './home/home';
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent }, 
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'kanto', component: KantoComponent },
-  { path: 'johto', component: JohtoComponent }
+  { path: 'johto', component: JohtoComponent },
+  { path: 'hoenn', component: HoennComponent },
 ];
+
+

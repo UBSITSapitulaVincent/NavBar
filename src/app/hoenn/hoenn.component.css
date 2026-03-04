@@ -1,0 +1,74 @@
+.hoenn-container {
+  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+  padding: 40px;
+  border-radius: 20px;
+  min-height: 100vh;
+}
+
+.hoenn-header {
+  color: #00796b;
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.hoenn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.hoenn-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  border-bottom: 6px solid #009688;
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0,121,107,0.1);
+}
+
+.hoenn-card:hover {
+  transform: translateY(-10px);
+  border-color: #4db6ac;
+}
+
+.hoenn-badge-icon {
+  background: #e0f2f1;
+  color: #00695c;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.hoenn-team-list {
+  list-style: none;
+  margin-top: 15px;
+  border-top: 1px dashed #b2dfdb;
+  padding-top: 10px;
+}
+
+.hoenn-team-list li {
+  font-size: 0.9rem;
+  color: #555;
+  padding: 2px 0;
+}
+
+.hoenn-team-list li::before {
+  content: "💧";
+  margin-right: 8px;
+}
+
+.hoenn-motto-box {
+  background: #ffffff;
+  border: 2px solid #009688;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-style: italic;
+  color: #004d40;
+}

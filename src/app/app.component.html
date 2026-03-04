@@ -1,11 +1,27 @@
-<h1>{{ title }}</h1>
-
-<nav>
-  <a routerLink="/home">Home</a> , 
-  <a routerLink="/kanto">Kanto Region</a> , 
-  <a routerLink="/johto">Johto Region</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">Gym Leaders App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/kanto" routerLinkActive="active">Kanto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/johto" routerLinkActive="active">Johto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/hoenn" routerLinkActive="active">Hoenn</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<main>
-  <router-outlet></router-outlet>
-</main>
+<!-- Router Outlet must be here to render components -->
+<router-outlet></router-outlet>

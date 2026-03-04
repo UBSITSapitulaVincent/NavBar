@@ -8,14 +8,14 @@ import { Component, input, output } from '@angular/core';
 export class LeaderInfoComponent {
   name = input.required<string>();
   location = input.required<string>();
-  pokemons = input.required<string>();
+  team = input.required<string>();
   badge = input.required<string>();
   motto = input.required<string>();
   age = input.required<number>();
 
-  Motto = output<string>();
+  showMotto = output<string>();
 
   triggerMotto() {
-    this.Motto.emit(this.motto());
+    this.showMotto.emit(this.motto());
   }
 }

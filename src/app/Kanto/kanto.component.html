@@ -1,16 +1,17 @@
-<div class="home-page-container">
-  <div class="home-header">
-    <h2>Kanto Gym Leaders</h2>
-  </div>
-
-  <div class="history-section">
+<h2>Kanto Gym Leaders</h2>
+<ul>
     @for (leader of gymLeaders(); track leader.name) {
-      <div class="leader-card">
-        <div class="leader-title">Leader</div>
-        <div class="leader-name">{{ leader.name }}</div>
-        <button>Motto</button>
-      </div>
+        <li><h3>{{ leader.name }}</h3></li>
+        <li><h3>{{leader.age}}</h3></li>
+        <ul>
+            <h4>Pokemon Team: </h4>
+            @for (pokemon of leader.pokemon; track pokemon) {
+                <li>{{pokemon.name}}</li>
+            }
+            <li> Badge: {{leader.badge}}</li>
+            <li>Location: {{leader.location}}</li>
+        </ul>
     }
+</ul>
 
-  </div>
-</div>
+    

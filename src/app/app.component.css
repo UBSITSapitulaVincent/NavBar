@@ -1,20 +1,67 @@
-nav {
-  background-color: #333;
-  padding: 1rem;
-  margin-bottom: 20px;
+.leader-card {
+  width: 300px;
+  background: #fff;
+  border-radius: 15px;
+  border: 5px solid #ccc;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-right: 20px;
+.water { border-color: #6390F0; background: linear-gradient(145deg, #fff, #eef2ff); }
+.fire  { border-color: #F08030; background: linear-gradient(145deg, #fff, #fff5ee); }
+
+.leader-title {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #888;
   font-weight: bold;
 }
 
-nav a:hover {
-  color: #ffcb05; 
+.leader-name {
+  margin: 5px 0;
+  font-size: 1.8rem;
+  color: #333;
 }
 
-main {
-  padding: 0 20px;
+.badge-icon {
+  font-size: 3rem;
+  margin: 15px 0;
+}
+
+.team-list ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.team-list li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #ddd;
+  display: flex;
+  justify-content: space-between;
+}
+
+.quote {
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+nav {
+  background: #333;
+  padding: 10px;
+}
+
+a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.active {
+  font-weight: bold;
+  text-decoration: underline;
 }

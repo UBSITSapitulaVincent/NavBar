@@ -1,201 +1,196 @@
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #ff0000 0%, #ff6b6b 25%, #4ecdc4 50%, #45b7d1 75%, #3b4cca 100%);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  border-bottom: 3px solid #ffde00;
+:root {
+  --pokemon-red: #ff1f1f;
+  --pokemon-blue: #3166b3;
+  --pokemon-yellow: #ffcb05;
+  --dark: #333333;
+  --light-bg: #f8f9fa;
+  --white: #ffffff;
 }
 
-.navbar a {
-  color: white;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  padding: 10px 20px;
-  margin: 0 10px;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-}
-
-.navbar a:hover {
-  background-color: #ffde00;
-  color: #3b4cca;
-  transform: scale(1.1) translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255, 222, 0, 0.4);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #ffde00);
-  background-attachment: fixed;
-  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--dark);
+  padding-top: 70px;
+  line-height: 1.6;
 }
 
-.home-page-container {
+/* NAVIGATION */
+nav {
+  background-color: var(--pokemon-red);
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 40px 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.home-header {
-  text-align: center;
-  margin-bottom: 40px;
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
 }
 
-/* 1. Wrap your cards in this container in your HTML */
-.history-section {
-  display: grid;
-  /* This creates side-by-side columns that wrap automatically */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-  width: 90%;
+nav ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+  color: var(--pokemon-yellow);
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+/* GRID LAYOUTS (Side-by-Side) */
+.container {
   max-width: 1200px;
-  margin: 20px auto; /* Centers the whole group on the page */
+  margin: 0 auto;
   padding: 20px;
 }
 
-
-.leader-card {
-  width: 100%; 
-  max-width: 350px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px); 
-  border-radius: 24px;
-  padding: 32px 24px;
-  margin: 0;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+.leader-grid, .hoenn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
 }
 
-
-.leader-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-
-.leader-card::after {
-  content: "";
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  filter: blur(40px);
-  opacity: 0.15;
-  z-index: -1;
-}
-
-.badge-icon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 20px;
+/* GYM LEADER CARDS */
+.gym-leader {
+  background: var(--white);
+  padding: 25px;
+  border-radius: 15px;
   display: flex;
+  flex-direction: column; 
   align-items: center;
-  justify-content: center;
-  font-size: 2.2rem;
-  background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
-  border-radius: 20px;
-  transform: rotate(-5deg); 
-  box-shadow: 0 8px 15px rgba(0,0,0,0.05);
-  color: white;
-}
-
-.leader-title {
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #ff6b6b;
-  margin-bottom: 8px;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-bottom: 8px solid var(--pokemon-blue);
+  transition: all 0.4s ease;
+  height: 100%;
 }
 
-.leader-name {
-  font-size: 1.75rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-.team-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.team-list li {
-  padding: 12px 16px;
-  margin-bottom: 8px;
-  background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
-  border-radius: 12px;
-  font-weight: 500;
-  transition: transform 0.2s ease, background 0.2s ease;
-  color: #333;
-}
-
-.team-list li:hover {
-  transform: translateX(5px);
-  background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(78, 205, 196, 0.2));
-}
-
-.quote {
-  font-style: italic;
-  font-weight: 450;
-  color: #666;
-  margin-top: 24px;
-  padding: 0 10px;
-  position: relative;
-  text-align: center;
-}
-
-.quote::before {
-  content: "“";
-  font-size: 3rem;
-  position: absolute;
-  top: -10px;
-  left: 0;
-  opacity: 0.1;
-  color: #ff6b6b;
-}
-
-.region-card h2 {
-  margin-top: 0;
-  color: #2c3e50;
-}
-
-.region-card p {
-  line-height: 1.6;
-  color: #555;
+.gym-leader img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
   margin-bottom: 20px;
+  border: 5px solid var(--light-bg);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gym-leader-info h2 {
+  color: var(--pokemon-red);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: var(--pokemon-yellow);
+  color: var(--dark);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+/* SPECIALTY HOVER EFFECTS */
+.gym-leader:hover { transform: translateY(-10px); }
+.gym-leader.hover-rock:hover { background-color: #B6A136 !important; color: white; }
+.gym-leader.hover-water:hover { background-color: #6390F0 !important; color: white; }
+.gym-leader.hover-electric:hover { background-color: #F7D02C !important; color: black; }
+.gym-leader.hover-grass:hover { background-color: #7AC74C !important; color: white; }
+.gym-leader.hover-poison:hover { background-color: #A33EA1 !important; color: white; }
+.gym-leader.hover-psychic:hover { background-color: #F95587 !important; color: white; }
+.gym-leader.hover-fire:hover { background-color: #EE8130 !important; color: white; }
+.gym-leader.hover-ground:hover { background-color: #E2BF65 !important; color: black; }
+.gym-leader.hover-flying:hover { background-color: #A98FF3 !important; color: white; }
+.gym-leader.hover-bug:hover { background-color: #A6B91A !important; color: white; }
+.gym-leader.hover-normal:hover { background-color: #A8A77A !important; color: white; }
+.gym-leader.hover-ghost:hover { background-color: #735797 !important; color: white; }
+.gym-leader.hover-fighting:hover { background-color: #C22E28 !important; color: white; }
+.gym-leader.hover-steel:hover { background-color: #B7B7CE !important; color: black; }
+.gym-leader.hover-ice:hover { background-color: #96D9D6 !important; color: black; }
+.gym-leader.hover-dragon:hover { background-color: #6F35FC !important; color: white; }
+
+.gym-leader:hover h2, .gym-leader:hover p, .gym-leader:hover .badge {
+  color: inherit !important;
+}
+
+/* HOENN SPECIFIC */
+.hoenn-container {
+  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+  padding: 40px;
+  border-radius: 20px;
+  min-height: 100vh;
+}
+
+.hoenn-header {
+  color: #00796b;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.hoenn-motto-box {
+  background: #ffffff;
+  border: 2px solid #009688;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-style: italic;
+  color: #004d40;
+}
+
+/* FORMS & BUTTONS */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
 }
 
 button {
-  display: block;
-  margin: 20px auto 0;
-  background-color: white;
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 8px 15px;
-  font-weight: bold;
+  background-color: var(--pokemon-blue);
+  color: var(--white);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 button:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.05);
+  background-color: #254e8a;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  nav ul { gap: 10px; }
+  nav ul li a { font-size: 0.9rem; padding: 5px 10px; }
+  .hoenn-header { font-size: 1.8rem; }
 }
