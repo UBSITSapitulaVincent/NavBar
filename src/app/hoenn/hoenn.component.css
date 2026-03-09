@@ -1,74 +1,217 @@
-.hoenn-container {
-  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
-  padding: 40px;
-  border-radius: 20px;
+/* Import Montserrat for a bold, modern feel */
+@import url('https://fonts.googleapis.com');
+
+:root {
+  /* Pokémon Brand Colors */
+  --pokemon-red: #ff1f1f;
+  --pokemon-blue: #3166b3;
+  --pokemon-yellow: #ffcb05;
+  
+  /* UI Colors */
+  --dark: #2d2d2d;
+  --light-bg: #f0f2f5;
+  --white: #ffffff;
+  --pattern-color: rgba(49, 102, 179, 0.04);
+  
+  /* Utilities */
+  --shadow-sm: 0 4px 6px rgba(0,0,0,0.07);
+  --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--dark);
+  padding-top: 80px;
+  line-height: 1.6;
   min-height: 100vh;
+
+  /* --- PROFESSIONAL BACKGROUND --- */
+  background-color: #f8f9fa;
+  background-image: 
+    linear-gradient(var(--pattern-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pattern-color) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, #ffffff 0%, #eef2f7 100%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  background-attachment: fixed;
+}
+
+/* NAVIGATION - Pokéball Inspired */
+nav {
+  background-color: var(--pokemon-red);
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 0px rgba(0,0,0,0.15);
+  border-bottom: 5px solid var(--dark);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  transition: var(--transition);
+  letter-spacing: 1px;
+}
+
+nav ul li a:hover, nav ul li a.active {
+  color: var(--pokemon-yellow);
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+/* GRID LAYOUTS */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.leader-grid, .hoenn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* CARDS */
+.gym-leader {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 10px solid var(--pokemon-blue);
+  transition: var(--transition);
+}
+
+.gym-leader img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 6px solid var(--light-bg);
+  object-fit: cover;
+  transition: var(--transition);
+  background: #fff;
+}
+
+.gym-leader-info h2 {
+  color: var(--dark);
+  font-weight: 800;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--pokemon-yellow), #f3a019);
+  color: var(--dark);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+/* HOVER ANIMATIONS */
+.gym-leader:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Type Specialty Hovers */
+.gym-leader.hover-rock:hover { background-color: #B6A136; color: white; }
+.gym-leader.hover-water:hover { background-color: #6390F0; color: white; }
+.gym-leader.hover-electric:hover { background-color: #F7D02C; color: black; }
+.gym-leader.hover-grass:hover { background-color: #7AC74C; color: white; }
+.gym-leader.hover-fire:hover { background-color: #EE8130; color: white; }
+.gym-leader.hover-psychic:hover { background-color: #F95587; color: white; }
+
+.gym-leader:hover h2, .gym-leader:hover p {
+  color: inherit;
+}
+
+/* HOENN SECTION */
+.hoenn-container {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 60px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: 40px;
 }
 
 .hoenn-header {
   color: #00796b;
-  text-transform: uppercase;
-  font-size: 3rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
-}
-
-.hoenn-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-}
-
-.hoenn-card {
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
-  border-bottom: 6px solid #009688;
-  transition: transform 0.3s ease;
-  box-shadow: 0 8px 16px rgba(0,121,107,0.1);
-}
-
-.hoenn-card:hover {
-  transform: translateY(-10px);
-  border-color: #4db6ac;
-}
-
-.hoenn-badge-icon {
-  background: #e0f2f1;
-  color: #00695c;
-  padding: 5px 15px;
-  border-radius: 50px;
-  font-size: 0.8rem;
   font-weight: 800;
-  display: inline-block;
+  font-size: 3rem;
+  text-align: center;
   margin-bottom: 15px;
 }
 
-.hoenn-team-list {
-  list-style: none;
-  margin-top: 15px;
-  border-top: 1px dashed #b2dfdb;
-  padding-top: 10px;
+/* FORMS & INTERACTION */
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  border: 2px solid #e1e1e1;
+  border-radius: 12px;
+  font-family: inherit;
+  transition: var(--transition);
 }
 
-.hoenn-team-list li {
-  font-size: 0.9rem;
-  color: #555;
-  padding: 2px 0;
+input:focus {
+  outline: none;
+  border-color: var(--pokemon-blue);
+  box-shadow: 0 0 0 4px rgba(49, 102, 179, 0.1);
 }
 
-.hoenn-team-list li::before {
-  content: "💧";
-  margin-right: 8px;
+button {
+  background-color: var(--pokemon-blue);
+  color: var(--white);
+  border: none;
+  padding: 15px 35px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: var(--transition);
 }
 
-.hoenn-motto-box {
-  background: #ffffff;
-  border: 2px solid #009688;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-style: italic;
-  color: #004d40;
+button:hover {
+  background-color: #1e4480;
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  nav ul { gap: 8px; }
+  nav ul li a { font-size: 0.7rem; padding: 5px 10px; }
+  .hoenn-header { font-size: 2rem; }
 }
